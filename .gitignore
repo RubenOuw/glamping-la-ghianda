@@ -1,0 +1,12 @@
+.DS_Store
+assets/gallery/*.JPG
+assets/gallery/.DS_Store
+assets/tent-hero.png
+assets/tent-hero.jpg
+fontcache/
+fonts.css
+fonts.inline.css
+tailwind.compiled.css
+tailwind.config.js
+tailwind.input.css
+artifact.html
