@@ -148,6 +148,20 @@
 
   /* Count-up number ticking */
   .countup { font-variant-numeric: tabular-nums; }
+
+  /* Weather section decor */
+  .sun-decor { position: absolute; top: -60px; right: -60px; width: 260px; height: 260px; pointer-events: none; }
+  .sun-rays { transform-origin: 130px 130px; animation: sunSpin 50s linear infinite; }
+  @keyframes sunSpin { to { transform: rotate(360deg); } }
+  .cloud-decor { position: absolute; pointer-events: none; opacity: .55; }
+  .cloud-1 { top: 12%; left: -8%; width: 140px; animation: driftRight 70s linear infinite; }
+  .cloud-2 { top: 55%; right: -10%; width: 100px; animation: driftLeft 85s linear infinite; }
+  @keyframes driftRight { from { transform: translateX(0); } to { transform: translateX(115vw); } }
+  @keyframes driftLeft { from { transform: translateX(0); } to { transform: translateX(-115vw); } }
+  @media (prefers-reduced-motion: reduce) {
+    .sun-rays, .cloud-decor { animation: none !important; }
+  }
+  .weather-spin { animation: sunSpin 1.1s linear infinite; }
 </style>
 </head>
 <body class="text-forest antialiased">
@@ -171,6 +185,7 @@
       <a href="#about" class="hover:text-terracotta transition-colors"><span data-lang="en">Our Story</span><span data-lang="it">La Storia</span></a>
       <a href="#tents" class="hover:text-terracotta transition-colors"><span data-lang="en">The Tents</span><span data-lang="it">Le Tende</span></a>
       <a href="#experiences" class="hover:text-terracotta transition-colors"><span data-lang="en">Experiences</span><span data-lang="it">Esperienze</span></a>
+      <a href="#weather" class="hover:text-terracotta transition-colors"><span data-lang="en">Weather</span><span data-lang="it">Meteo</span></a>
       <a href="#gallery" class="hover:text-terracotta transition-colors"><span data-lang="en">Gallery</span><span data-lang="it">Galleria</span></a>
       <a href="#good-to-know" class="hover:text-terracotta transition-colors"><span data-lang="en">Good to Know</span><span data-lang="it">Utile Sapere</span></a>
       <a href="#contact" class="hover:text-terracotta transition-colors"><span data-lang="en">Contact</span><span data-lang="it">Contatti</span></a>
@@ -204,6 +219,7 @@
     <a href="#about" class="mobile-nav-link py-3 border-b border-cream/10 hover:text-terracotta-light transition-colors"><span data-lang="en">Our Story</span><span data-lang="it">La Storia</span></a>
     <a href="#tents" class="mobile-nav-link py-3 border-b border-cream/10 hover:text-terracotta-light transition-colors"><span data-lang="en">The Tents</span><span data-lang="it">Le Tende</span></a>
     <a href="#experiences" class="mobile-nav-link py-3 border-b border-cream/10 hover:text-terracotta-light transition-colors"><span data-lang="en">Experiences</span><span data-lang="it">Esperienze</span></a>
+    <a href="#weather" class="mobile-nav-link py-3 border-b border-cream/10 hover:text-terracotta-light transition-colors"><span data-lang="en">Weather</span><span data-lang="it">Meteo</span></a>
     <a href="#gallery" class="mobile-nav-link py-3 border-b border-cream/10 hover:text-terracotta-light transition-colors"><span data-lang="en">Gallery</span><span data-lang="it">Galleria</span></a>
     <a href="#good-to-know" class="mobile-nav-link py-3 border-b border-cream/10 hover:text-terracotta-light transition-colors"><span data-lang="en">Good to Know</span><span data-lang="it">Utile Sapere</span></a>
     <a href="#contact" class="mobile-nav-link py-3 border-b border-cream/10 hover:text-terracotta-light transition-colors"><span data-lang="en">Contact</span><span data-lang="it">Contatti</span></a>
@@ -262,34 +278,37 @@
       </a>
     </div>
   </div>
+</section>
 
-  <!-- floating highlight strip -->
-  <div class="relative z-10 max-w-7xl mx-auto w-full px-5 sm:px-8 -mb-10 sm:-mb-12">
-    <div class="grid grid-cols-1 sm:grid-cols-3 gap-px bg-forest/10 rounded-3xl overflow-hidden shadow-2xl">
-      <div class="bg-cream px-6 py-6 sm:py-7">
-        <svg class="w-6 h-6 mb-3 text-terracotta" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><path d="M3 18l4-8 4 5 3-4 7 7" stroke-linecap="round" stroke-linejoin="round"/></svg>
-        <p class="font-display font-semibold text-base leading-snug">
-          <span data-lang="en">On a dormant volcano, wrapped in oak woods</span>
-          <span data-lang="it">Su un vulcano quiescente, tra i boschi di querce</span>
-        </p>
-      </div>
-      <div class="bg-cream px-6 py-6 sm:py-7">
-        <svg class="w-6 h-6 mb-3 text-terracotta" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><circle cx="12" cy="12" r="9" stroke-linecap="round"/><path d="M8 12a4 4 0 108 0 4 4 0 00-8 0z" stroke-linecap="round"/></svg>
-        <p class="font-display font-semibold text-base leading-snug">
-          <span data-lang="en">Private pool terrace with every stay</span>
-          <span data-lang="it">Terrazza con piscina privata in ogni soggiorno</span>
-        </p>
-      </div>
-      <div class="bg-cream px-6 py-6 sm:py-7">
-        <svg class="w-6 h-6 mb-3 text-terracotta" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><path d="M12 3l9 18H3L12 3z" stroke-linecap="round" stroke-linejoin="round"/></svg>
-        <p class="font-display font-semibold text-base leading-snug">
-          <span data-lang="en">Etruscan hill towns, 20 minutes away</span>
-          <span data-lang="it">Borghi etruschi a 20 minuti</span>
-        </p>
-      </div>
+<!-- floating highlight strip: deliberately a sibling of the hero section, not
+     a child — it overlaps the hero's bottom edge via negative margin, and the
+     hero section has overflow-hidden (for the Ken Burns zoom), which would
+     otherwise clip this intentional overflow. -->
+<div class="relative z-20 max-w-7xl mx-auto w-full px-5 sm:px-8 -mt-10 sm:-mt-12">
+  <div class="grid grid-cols-1 sm:grid-cols-3 gap-px bg-forest/10 rounded-3xl overflow-hidden shadow-2xl">
+    <div class="bg-cream px-6 py-6 sm:py-7">
+      <svg class="w-6 h-6 mb-3 text-terracotta" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><path d="M3 18l4-8 4 5 3-4 7 7" stroke-linecap="round" stroke-linejoin="round"/></svg>
+      <p class="font-display font-semibold text-base leading-snug">
+        <span data-lang="en">On a dormant volcano, wrapped in oak woods</span>
+        <span data-lang="it">Su un vulcano quiescente, tra i boschi di querce</span>
+      </p>
+    </div>
+    <div class="bg-cream px-6 py-6 sm:py-7">
+      <svg class="w-6 h-6 mb-3 text-terracotta" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><circle cx="12" cy="12" r="9" stroke-linecap="round"/><path d="M8 12a4 4 0 108 0 4 4 0 00-8 0z" stroke-linecap="round"/></svg>
+      <p class="font-display font-semibold text-base leading-snug">
+        <span data-lang="en">Private pool terrace with every stay</span>
+        <span data-lang="it">Terrazza con piscina privata in ogni soggiorno</span>
+      </p>
+    </div>
+    <div class="bg-cream px-6 py-6 sm:py-7">
+      <svg class="w-6 h-6 mb-3 text-terracotta" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><path d="M12 3l9 18H3L12 3z" stroke-linecap="round" stroke-linejoin="round"/></svg>
+      <p class="font-display font-semibold text-base leading-snug">
+        <span data-lang="en">Etruscan hill towns, 20 minutes away</span>
+        <span data-lang="it">Borghi etruschi a 20 minuti</span>
+      </p>
     </div>
   </div>
-</section>
+</div>
 
 <!-- ============ ABOUT ============ -->
 <section id="about" class="pt-28 sm:pt-32 pb-20 sm:pb-28 px-5 sm:px-8">
@@ -315,7 +334,7 @@
         </div>
         <div class="w-px h-10 bg-forest/15"></div>
         <div>
-          <span class="font-display text-3xl font-semibold text-terracotta countup" data-countup="8.4" data-decimals="1" data-suffix="">0</span>
+          <span class="font-display text-3xl font-semibold text-terracotta countup" data-countup="9.5" data-decimals="1" data-suffix="">0</span>
           <p class="text-forest/60"><span data-lang="en">Booking.com rating</span><span data-lang="it">Voto su Booking.com</span></p>
         </div>
         <div class="w-px h-10 bg-forest/15"></div>
@@ -509,6 +528,60 @@
   </div>
 </section>
 
+<!-- ============ WEATHER ============ -->
+<section id="weather" class="relative py-20 sm:py-28 px-5 sm:px-8 overflow-hidden" style="background: linear-gradient(180deg, #EAF3FA 0%, #F1E5D3 100%);">
+  <svg class="sun-decor" viewBox="0 0 260 260" fill="none" aria-hidden="true">
+    <g class="sun-rays" stroke="#BA5A34" stroke-width="4" stroke-linecap="round" opacity="0.5">
+      <path d="M130 20v26M130 214v26M20 130h26M214 130h26M46 46l18 18M196 196l18 18M46 214l18-18M196 64l18-18"/>
+    </g>
+    <circle cx="130" cy="130" r="52" fill="#BA5A34" opacity="0.85"/>
+  </svg>
+  <svg class="cloud-decor cloud-1" viewBox="0 0 140 70" fill="#2C4F92" aria-hidden="true"><path d="M25 55a20 20 0 013-39A26 26 0 0175 20a17 17 0 0122 25 15 15 0 01-3 30H25z"/></svg>
+  <svg class="cloud-decor cloud-2" viewBox="0 0 140 70" fill="#2C4F92" aria-hidden="true"><path d="M25 55a20 20 0 013-39A26 26 0 0175 20a17 17 0 0122 25 15 15 0 01-3 30H25z"/></svg>
+
+  <div class="max-w-6xl mx-auto relative z-10">
+    <div class="max-w-2xl mb-14 reveal">
+      <p class="uppercase tracking-[0.3em] text-brand-blue text-xs font-semibold mb-4">
+        <span data-lang="en">Weather</span><span data-lang="it">Meteo</span>
+      </p>
+      <h2 class="font-display text-4xl sm:text-5xl font-semibold leading-tight text-forest">
+        <span data-lang="en">Sunshine on Monte Amiata</span>
+        <span data-lang="it">Sole sul Monte Amiata</span>
+      </h2>
+      <p class="mt-5 text-forest/70 text-lg font-light" data-lang="en">Live conditions over Sorano, right now — good to know before you pack.</p>
+      <p class="mt-5 text-forest/70 text-lg font-light" data-lang="it">Condizioni in tempo reale su Sorano, in questo momento — utile da sapere prima di partire.</p>
+    </div>
+
+    <div class="reveal rounded-3xl bg-white/70 backdrop-blur-sm border border-white shadow-xl p-8 sm:p-10">
+      <div id="weatherLoading" class="flex items-center gap-3 text-forest/50 text-sm py-6">
+        <svg class="weather-spin w-4 h-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 3a9 9 0 106.36 2.64" stroke-linecap="round"/></svg>
+        <span><span data-lang="en">Checking the sky over Sorano…</span><span data-lang="it">Controllo il cielo su Sorano…</span></span>
+      </div>
+
+      <div id="weatherContent" class="hidden">
+        <div class="flex flex-wrap items-center gap-6 sm:gap-8">
+          <div class="flex items-center gap-5">
+            <div id="weatherIconNow" class="w-14 h-14 sm:w-16 sm:h-16 text-terracotta shrink-0"></div>
+            <div>
+              <p id="weatherTempNow" class="font-display text-5xl font-semibold text-forest leading-none"></p>
+              <p id="weatherLabelNow" class="text-forest/60 mt-1"></p>
+            </div>
+          </div>
+          <div id="weatherPoolBadge" class="sm:ml-auto inline-flex items-center rounded-full bg-terracotta/10 text-terracotta px-4 py-2 text-sm font-semibold"></div>
+        </div>
+        <div id="weatherForecast" class="mt-8 grid grid-cols-5 gap-2 sm:gap-4"></div>
+        <p class="mt-6 text-forest/40 text-xs" data-lang="en">Live forecast via Open-Meteo for Sorano (GR).</p>
+        <p class="mt-6 text-forest/40 text-xs" data-lang="it">Previsioni in tempo reale via Open-Meteo per Sorano (GR).</p>
+      </div>
+
+      <div id="weatherFallback" class="hidden text-forest/70 text-sm leading-relaxed">
+        <p data-lang="en">Live weather is briefly unavailable, but here's what to expect: Monte Amiata has a Mediterranean climate — warm, dry summers around 25&ndash;32&deg;C (perfect pool weather) and mild winters around 5&ndash;12&deg;C, often with clear skies.</p>
+        <p data-lang="it">Il meteo in diretta non è al momento disponibile, ma ecco cosa aspettarsi: il Monte Amiata ha un clima mediterraneo — estati calde e secche intorno ai 25&ndash;32&deg;C (perfette per la piscina) e inverni miti intorno ai 5&ndash;12&deg;C, spesso con cielo sereno.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
 <!-- ============ GALLERY ============ -->
 <section id="gallery" class="py-20 sm:py-28 px-5 sm:px-8">
   <div class="max-w-6xl mx-auto">
@@ -680,7 +753,7 @@
          class="group rounded-3xl bg-forest-light border border-cream/10 p-8 flex items-center justify-between hover:border-terracotta-light transition-colors cursor-pointer">
         <div>
           <h3 class="font-display text-2xl font-semibold mb-1">Booking.com</h3>
-          <p class="text-cream/60 text-sm"><span data-lang="en">Rated 8.4 &middot; our recommended platform</span><span data-lang="it">Valutazione 8.4 &middot; piattaforma consigliata</span></p>
+          <p class="text-cream/60 text-sm"><span data-lang="en">Rated 9.5 &middot; our recommended platform</span><span data-lang="it">Valutazione 9.5 &middot; piattaforma consigliata</span></p>
         </div>
         <svg class="w-6 h-6 text-terracotta-light group-hover:translate-x-1 transition-transform shrink-0" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M5 12h14M13 6l6 6-6 6" stroke-linecap="round" stroke-linejoin="round"/></svg>
       </a>
@@ -1064,6 +1137,93 @@
       });
       btn.addEventListener('mouseleave', () => { btn.style.transform = 'translate(0,0)'; });
     });
+  })();
+
+  // Live weather (Open-Meteo, no key required) for Sorano (GR), Monte Amiata
+  (function () {
+    const ICONS = {
+      sun: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><circle cx="12" cy="12" r="4.3"/><path d="M12 2.5v2.3M12 19.2v2.3M4.9 4.9l1.6 1.6M17.5 17.5l1.6 1.6M2.5 12h2.3M19.2 12h2.3M4.9 19.1l1.6-1.6M17.5 6.5l1.6-1.6" stroke-linecap="round"/></svg>',
+      cloudSun: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><circle cx="7.5" cy="8" r="2.7"/><path d="M7.5 2.6v1.3M7.5 12v1.1M2.6 8h1.3M3.9 4.1l.9.9M11 4.1l-.9.9" stroke-linecap="round"/><path d="M9.3 19.3a4 4 0 01.6-7.95 5 5 0 019.5 1.9 3.5 3.5 0 01-1.4 6.05H9.3z"/></svg>',
+      cloud: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><path d="M6.8 18.3a4.5 4.5 0 01.85-8.95 5.5 5.5 0 0110.85 1.4 4 4 0 01-1 7.55H6.8z" stroke-linejoin="round"/></svg>',
+      rain: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><path d="M6.5 14.3a4.5 4.5 0 01.85-8.95A5.5 5.5 0 0118.2 6.7a4 4 0 01-1 7.6H6.5z"/><path d="M8 18.3l-1.1 2.2M12 18.3l-1.1 2.2M16 18.3l-1.1 2.2" stroke-linecap="round"/></svg>',
+      storm: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><path d="M6.5 13.3a4.5 4.5 0 01.85-8.95A5.5 5.5 0 0118.2 5.7a4 4 0 01-1 7.6H6.5z"/><path d="M13 14.5l-2.8 4.6h2.8L11 23.5" stroke-linecap="round" stroke-linejoin="round"/></svg>',
+      snow: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><path d="M6.5 13.8a4.5 4.5 0 01.85-8.95A5.5 5.5 0 0118.2 6.2a4 4 0 01-1 7.6H6.5z"/><path d="M9 17.8v4M9 18.7l-1.4.9M9 18.7l1.4.9M15 17.8v4M15 18.7l-1.4.9M15 18.7l1.4.9" stroke-linecap="round"/></svg>',
+      fog: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><path d="M4 8.5h11.5M4 12.5h16M6.5 16.5h12" stroke-linecap="round"/></svg>',
+    };
+    const CODES = {
+      0: { icon: 'sun', en: 'Clear sky', it: 'Cielo sereno' },
+      1: { icon: 'sun', en: 'Mostly clear', it: 'Prevalentemente sereno' },
+      2: { icon: 'cloudSun', en: 'Partly cloudy', it: 'Parzialmente nuvoloso' },
+      3: { icon: 'cloud', en: 'Overcast', it: 'Nuvoloso' },
+      45: { icon: 'fog', en: 'Foggy', it: 'Nebbia' },
+      48: { icon: 'fog', en: 'Foggy', it: 'Nebbia' },
+      51: { icon: 'rain', en: 'Light drizzle', it: 'Pioviggine leggera' },
+      53: { icon: 'rain', en: 'Drizzle', it: 'Pioviggine' },
+      55: { icon: 'rain', en: 'Dense drizzle', it: 'Pioviggine intensa' },
+      61: { icon: 'rain', en: 'Light rain', it: 'Pioggia leggera' },
+      63: { icon: 'rain', en: 'Rain', it: 'Pioggia' },
+      65: { icon: 'rain', en: 'Heavy rain', it: 'Pioggia intensa' },
+      71: { icon: 'snow', en: 'Light snow', it: 'Neve leggera' },
+      73: { icon: 'snow', en: 'Snow', it: 'Neve' },
+      75: { icon: 'snow', en: 'Heavy snow', it: 'Neve intensa' },
+      80: { icon: 'rain', en: 'Rain showers', it: 'Rovesci di pioggia' },
+      81: { icon: 'rain', en: 'Rain showers', it: 'Rovesci di pioggia' },
+      82: { icon: 'rain', en: 'Violent showers', it: 'Rovesci violenti' },
+      95: { icon: 'storm', en: 'Thunderstorm', it: 'Temporale' },
+      96: { icon: 'storm', en: 'Thunderstorm', it: 'Temporale' },
+      99: { icon: 'storm', en: 'Thunderstorm', it: 'Temporale' },
+    };
+    const info = (code) => CODES[code] || { icon: 'cloud', en: '—', it: '—' };
+
+    async function loadWeather() {
+      const loadingEl = document.getElementById('weatherLoading');
+      const contentEl = document.getElementById('weatherContent');
+      const fallbackEl = document.getElementById('weatherFallback');
+      if (!loadingEl) return;
+      try {
+        const url = 'https://api.open-meteo.com/v1/forecast?latitude=42.6797&longitude=11.7089&current_weather=true&daily=weathercode,temperature_2m_max,temperature_2m_min&timezone=Europe%2FRome&forecast_days=5';
+        const res = await fetch(url);
+        if (!res.ok) throw new Error('weather request failed');
+        const data = await res.json();
+
+        const cw = data.current_weather;
+        const now = info(cw.weathercode);
+        document.getElementById('weatherIconNow').innerHTML = ICONS[now.icon];
+        document.getElementById('weatherTempNow').textContent = Math.round(cw.temperature) + '°C';
+        document.getElementById('weatherLabelNow').innerHTML =
+          `<span data-lang="en">${now.en}</span><span data-lang="it">${now.it}</span>`;
+
+        const poolWeather = cw.temperature >= 22;
+        document.getElementById('weatherPoolBadge').innerHTML = poolWeather
+          ? '<span data-lang="en">Perfect pool weather</span><span data-lang="it">Tempo perfetto per la piscina</span>'
+          : '<span data-lang="en">Cosy blanket weather</span><span data-lang="it">Tempo da coperta e relax</span>';
+
+        const forecastEl = document.getElementById('weatherForecast');
+        forecastEl.innerHTML = '';
+        data.daily.time.forEach((d, i) => {
+          const date = new Date(d + 'T00:00:00');
+          const en = i === 0 ? 'Today' : date.toLocaleDateString('en-GB', { weekday: 'short' });
+          const it = i === 0 ? 'Oggi' : date.toLocaleDateString('it-IT', { weekday: 'short' });
+          const di = info(data.daily.weathercode[i]);
+          const chip = document.createElement('div');
+          chip.className = 'rounded-2xl bg-white/70 border border-white px-1.5 sm:px-2 py-4 text-center';
+          chip.innerHTML = `
+            <p class="text-[10px] sm:text-xs font-semibold text-forest/50 uppercase mb-2"><span data-lang="en">${en}</span><span data-lang="it">${it}</span></p>
+            <div class="w-6 h-6 sm:w-7 sm:h-7 mx-auto text-terracotta mb-2">${ICONS[di.icon]}</div>
+            <p class="text-sm font-semibold text-forest">${Math.round(data.daily.temperature_2m_max[i])}°</p>
+            <p class="text-xs text-forest/40">${Math.round(data.daily.temperature_2m_min[i])}°</p>
+          `;
+          forecastEl.appendChild(chip);
+        });
+
+        loadingEl.classList.add('hidden');
+        contentEl.classList.remove('hidden');
+      } catch (e) {
+        loadingEl.classList.add('hidden');
+        fallbackEl.classList.remove('hidden');
+      }
+    }
+    loadWeather();
   })();
 </script>
 </body>
