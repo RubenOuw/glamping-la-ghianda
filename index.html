@@ -348,10 +348,24 @@
       <p class="mt-5 text-cream/75 text-lg font-light" data-lang="it">Le nostre due tende sono identiche — stessa disposizione, stessi comfort, stessa vista. Qualunque venga assegnata alla prenotazione, il soggiorno è esattamente lo stesso: un ampio lodge con tetto in tela su una piattaforma in legno rialzata, all'ombra delle querce.</p>
     </div>
 
-    <div class="tilt grid lg:grid-cols-[1fr_1.1fr] gap-0 rounded-3xl overflow-hidden border border-cream/10">
-      <div class="min-h-[320px] lg:min-h-[480px] grid grid-rows-[1.4fr_1fr] gap-1">
-        <img src="assets/gallery/optimized/kitchen.jpg" alt="Tent kitchenette with induction hob, fridge and coffee machine" class="w-full h-full object-cover" style="object-position:75% 60%;" />
-        <img src="assets/gallery/optimized/bedroom-two.jpg" alt="Tent bedroom with wardrobe and arched window" class="w-full h-full object-cover" style="object-position:40% 55%;" />
+    <div class="grid lg:grid-cols-[1fr_1.1fr] gap-0 rounded-3xl overflow-hidden border border-cream/10">
+      <div class="grid grid-cols-2 grid-rows-2 gap-1 bg-forest-light">
+        <button type="button" class="gallery-tile group relative aspect-[4/3] bg-forest-light flex items-center justify-center overflow-hidden cursor-pointer" data-src="assets/gallery/optimized/kitchen.jpg" data-en="Full kitchen inside the tent" data-it="Cucina completa all'interno della tenda">
+          <img src="assets/gallery/optimized/kitchen.jpg" alt="Tent kitchenette with induction hob, fridge and coffee machine" class="w-full h-full object-contain group-hover:scale-[1.03] transition-transform duration-500" />
+          <span class="gallery-zoom-hint"></span>
+        </button>
+        <button type="button" class="gallery-tile group relative aspect-[4/3] bg-forest-light flex items-center justify-center overflow-hidden cursor-pointer" data-src="assets/gallery/optimized/bedroom-two.jpg" data-en="Tent bedroom with arched window" data-it="Camera da letto della tenda con finestra ad arco">
+          <img src="assets/gallery/optimized/bedroom-two.jpg" alt="Tent bedroom with wardrobe and arched window" class="w-full h-full object-contain group-hover:scale-[1.03] transition-transform duration-500" />
+          <span class="gallery-zoom-hint"></span>
+        </button>
+        <button type="button" class="gallery-tile group relative aspect-[4/3] bg-forest-light flex items-center justify-center overflow-hidden cursor-pointer" data-src="assets/gallery/optimized/terrace-lounge.jpg" data-en="Terrace seating with a view over the valley" data-it="Terrazza con divani e vista sulla valle">
+          <img src="assets/gallery/optimized/terrace-lounge.jpg" alt="Tent terrace with lounge seating" class="w-full h-full object-contain group-hover:scale-[1.03] transition-transform duration-500" />
+          <span class="gallery-zoom-hint"></span>
+        </button>
+        <button type="button" class="gallery-tile group relative aspect-[4/3] bg-forest-light flex items-center justify-center overflow-hidden cursor-pointer" data-src="assets/gallery/optimized/terrace-view.jpg" data-en="View across the Tuscan hills from the terrace" data-it="Vista sulle colline toscane dalla terrazza">
+          <img src="assets/gallery/optimized/terrace-view.jpg" alt="View over the Tuscan hills from the terrace" class="w-full h-full object-contain group-hover:scale-[1.03] transition-transform duration-500" />
+          <span class="gallery-zoom-hint"></span>
+        </button>
       </div>
       <div class="bg-forest-light p-8 sm:p-10 flex flex-col">
         <p class="text-cream/60 text-sm mb-1"><span data-lang="en">From</span><span data-lang="it">Da</span></p>
