@@ -7,6 +7,12 @@
 <meta name="description" content="Two boutique glamping tents on Monte Amiata, South Tuscany. Private pool, terrace and full kitchen — hosted by Monica since 2021." />
 <link rel="canonical" href="https://glampinglaghianda.com/" />
 
+<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32.png" />
+<link rel="icon" type="image/png" sizes="192x192" href="/favicon-192.png" />
+<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
+<meta name="theme-color" content="#1F2E22" />
+
 <meta property="og:type" content="website" />
 <meta property="og:site_name" content="Glamping La Ghianda" />
 <meta property="og:title" content="Glamping La Ghianda — Monte Amiata, Tuscany" />
@@ -842,6 +848,11 @@
   </div>
 </footer>
 
+<button type="button" id="backToTop" aria-label="Back to top"
+  class="fixed bottom-6 right-5 sm:right-8 z-40 w-11 h-11 rounded-full bg-forest text-cream shadow-lg flex items-center justify-center cursor-pointer opacity-0 pointer-events-none translate-y-2 transition-all duration-300 hover:bg-forest-light">
+  <svg class="w-5 h-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 19V5M5 12l7-7 7 7" stroke-linecap="round" stroke-linejoin="round"/></svg>
+</button>
+
 <script>
   document.getElementById('year').textContent = new Date().getFullYear();
 
@@ -1162,6 +1173,23 @@
         btn.style.transform = `translate(${px * 10}px, ${py * 10}px)`;
       });
       btn.addEventListener('mouseleave', () => { btn.style.transform = 'translate(0,0)'; });
+    });
+  })();
+
+  // Back to top button
+  (function () {
+    const btn = document.getElementById('backToTop');
+    if (!btn) return;
+    const toggle = () => {
+      const show = window.scrollY > window.innerHeight * 0.8;
+      btn.classList.toggle('opacity-0', !show);
+      btn.classList.toggle('pointer-events-none', !show);
+      btn.classList.toggle('translate-y-2', !show);
+    };
+    window.addEventListener('scroll', toggle, { passive: true });
+    toggle();
+    btn.addEventListener('click', () => {
+      window.scrollTo({ top: 0, behavior: reduceMotion ? 'auto' : 'smooth' });
     });
   })();
 

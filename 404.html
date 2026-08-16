@@ -1,0 +1,74 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Page not found — Glamping La Ghianda</title>
+<meta name="robots" content="noindex" />
+<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
+<meta name="theme-color" content="#1F2E22" />
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,600;1,9..144,500&family=Inter:wght@400;500&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --cream: #F1E5D3; --forest: #1F2E22; --terracotta: #BA5A34;
+  }
+  * { box-sizing: border-box; }
+  html, body { margin: 0; padding: 0; }
+  body {
+    min-height: 100svh;
+    background: var(--forest);
+    color: var(--cream);
+    font-family: 'Inter', sans-serif;
+    display: flex; flex-direction: column; align-items: center; justify-content: center;
+    text-align: center;
+    padding: 2rem 1.5rem;
+  }
+  .acorn { width: 64px; height: 64px; margin-bottom: 1.75rem; }
+  h1 {
+    font-family: 'Fraunces', serif;
+    font-weight: 600;
+    font-size: clamp(2.25rem, 6vw, 3.5rem);
+    margin: 0 0 0.75rem;
+    line-height: 1.05;
+  }
+  p {
+    color: rgba(241,229,211,0.75);
+    font-size: 1.05rem;
+    font-weight: 400;
+    max-width: 32rem;
+    margin: 0 0 2rem;
+    line-height: 1.6;
+  }
+  a.home {
+    display: inline-flex; align-items: center; gap: 0.5rem;
+    background: var(--terracotta);
+    color: var(--cream);
+    text-decoration: none;
+    font-weight: 600;
+    padding: 0.8rem 1.6rem;
+    border-radius: 9999px;
+    transition: background-color .2s ease;
+  }
+  a.home:hover { background-color: #9C4A29; }
+  .italian { color: rgba(241,229,211,0.5); font-size: 0.95rem; margin-top: -1.25rem; }
+</style>
+</head>
+<body>
+  <svg class="acorn" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+    <path d="M50 20c9 0 18 6 18 17 0 3-.5 5.5-1.4 8H33.4c-.9-2.5-1.4-5-1.4-8 0-11 9-17 18-17z" fill="#BA5A34"/>
+    <circle cx="41" cy="32" r="2.2" fill="#F1E5D3"/><circle cx="50" cy="29" r="2.2" fill="#F1E5D3"/><circle cx="59" cy="32" r="2.2" fill="#F1E5D3"/>
+    <circle cx="38" cy="39" r="2.2" fill="#F1E5D3"/><circle cx="50" cy="37" r="2.2" fill="#F1E5D3"/><circle cx="62" cy="39" r="2.2" fill="#F1E5D3"/>
+    <path d="M33.4 45H66.6c1.2 3 1.9 6.4 1.9 10 0 16-9.5 25-18.5 33-9-8-18.5-17-18.5-33 0-3.6.7-7 1.9-10z" fill="#F1E5D3" stroke="#BA5A34" stroke-width="1.5"/>
+  </svg>
+  <h1>This path led into the woods</h1>
+  <p>We couldn't find that page. Maybe it moved, maybe it never existed — either way, the tents are easier to find.</p>
+  <p class="italian">Non abbiamo trovato questa pagina. Torna alla home per continuare a esplorare.</p>
+  <a class="home" href="/">
+    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M19 12H5M12 19l-7-7 7-7" stroke-linecap="round" stroke-linejoin="round"/></svg>
+    Back to Glamping La Ghianda
+  </a>
+</body>
+</html>
