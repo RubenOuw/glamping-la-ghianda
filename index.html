@@ -1461,17 +1461,41 @@
     wrap.addEventListener('mouseleave', () => paint(Number(hidden.value) || 0));
   })();
 
-  // Guestbook: submit via mailto
+  // Web3Forms — one access key powers both forms below.
+  // Get yours free at https://web3forms.com (create account, verify email, copy the Access Key).
+  // Replace the placeholder, then redeploy — that's the only change needed.
+  const WEB3FORMS_ACCESS_KEY = '1d00039e-b733-4b27-a88f-25a5dc47a988';
+
+  async function submitToWeb3Forms(payload, submitBtn, btnLabelEl) {
+    const originalHTML = btnLabelEl ? btnLabelEl.innerHTML : null;
+    if (submitBtn) submitBtn.disabled = true;
+    try {
+      const res = await fetch('https://api.web3forms.com/submit', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json', Accept: 'application/json' },
+        body: JSON.stringify({ access_key: WEB3FORMS_ACCESS_KEY, ...payload }),
+      });
+      const data = await res.json();
+      return !!data.success;
+    } catch (err) {
+      return false;
+    } finally {
+      if (submitBtn) submitBtn.disabled = false;
+    }
+  }
+
+  // Guestbook: submit via Web3Forms (falls back to mailto if the request fails)
   (function () {
     const form = document.getElementById('guestbookForm');
     if (!form) return;
     const errorEl = form.querySelector('.gb-error');
     const successEl = form.querySelector('.gb-success');
+    const submitBtn = form.querySelector('button[type="submit"]');
     const errors = {
-      en: { name: 'Please enter your name.', rating: 'Please choose a rating.', message: 'Please share a few words about your stay.' },
-      it: { name: 'Inserisci il tuo nome.', rating: 'Scegli una valutazione.', message: 'Condividi qualche parola sul tuo soggiorno.' }
+      en: { name: 'Please enter your name.', rating: 'Please choose a rating.', message: 'Please share a few words about your stay.', failed: 'Something went wrong sending this. Opening your email app instead — just hit send.' },
+      it: { name: 'Inserisci il tuo nome.', rating: 'Scegli una valutazione.', message: 'Condividi qualche parola sul tuo soggiorno.', failed: 'Qualcosa è andato storto nell\'invio. Si aprirà la tua app di posta — premi invia.' }
     };
-    form.addEventListener('submit', (e) => {
+    form.addEventListener('submit', async (e) => {
       e.preventDefault();
       const lang = document.documentElement.classList.contains('lang-it') ? 'it' : 'en';
       const name = form.name.value.trim();
@@ -1483,9 +1507,17 @@
       if (!message) { errorEl.textContent = errors[lang].message; errorEl.classList.remove('hidden'); return; }
 
       const stars = '★'.repeat(Number(rating)) + '☆'.repeat(5 - Number(rating));
-      const subject = `Guestbook: ${name} (${rating}/5)`;
-      const body = `Name: ${name}\nRating: ${stars} (${rating}/5)\n\n${message}`;
-      window.location.href = `mailto:glampinglaghianda@gmail.com?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
+      const ok = await submitToWeb3Forms({
+        subject: `Guestbook: ${name} (${rating}/5)`,
+        from_name: 'Glamping La Ghianda — Guestbook',
+        name, rating: `${stars} (${rating}/5)`, message,
+      }, submitBtn);
+
+      if (!ok) {
+        errorEl.textContent = errors[lang].failed; errorEl.classList.remove('hidden');
+        const body = `Name: ${name}\nRating: ${stars} (${rating}/5)\n\n${message}`;
+        window.location.href = `mailto:glampinglaghianda@gmail.com?subject=${encodeURIComponent('Guestbook: ' + name + ' (' + rating + '/5)')}&body=${encodeURIComponent(body)}`;
+      }
 
       successEl.classList.remove('hidden');
       form.reset();
@@ -1499,7 +1531,7 @@
     });
   })();
 
-  // Booking request: date constraints + submit via mailto
+  // Booking request: date constraints + submit via Web3Forms (falls back to mailto if the request fails)
   (function () {
     const form = document.getElementById('bookingRequestForm');
     if (!form) return;
@@ -1519,11 +1551,12 @@
 
     const errorEl = form.querySelector('.br-error');
     const successEl = form.querySelector('.br-success');
+    const submitBtn = form.querySelector('button[type="submit"]');
     const errors = {
-      en: { required: 'Please fill in your name, email, check-in and check-out dates.', order: 'Check-out must be after check-in.', minStay: 'Minimum stay is 2 nights.' },
-      it: { required: 'Compila nome, email, data di check-in e check-out.', order: 'Il check-out deve essere dopo il check-in.', minStay: 'Il soggiorno minimo è di 2 notti.' }
+      en: { required: 'Please fill in your name, email, check-in and check-out dates.', order: 'Check-out must be after check-in.', minStay: 'Minimum stay is 2 nights.', failed: 'Something went wrong sending this. Opening your email app instead — just hit send.' },
+      it: { required: 'Compila nome, email, data di check-in e check-out.', order: 'Il check-out deve essere dopo il check-in.', minStay: 'Il soggiorno minimo è di 2 notti.', failed: 'Qualcosa è andato storto nell\'invio. Si aprirà la tua app di posta — premi invia.' }
     };
-    form.addEventListener('submit', (e) => {
+    form.addEventListener('submit', async (e) => {
       e.preventDefault();
       const lang = document.documentElement.classList.contains('lang-it') ? 'it' : 'en';
       const name = form.name.value.trim();
@@ -1547,9 +1580,18 @@
         errorEl.textContent = errors[lang].minStay; errorEl.classList.remove('hidden'); return;
       }
 
-      const subject = `Booking Request: ${name} — ${checkin} to ${checkout}`;
-      const body = `Name: ${name}\nEmail: ${email}\nCheck-in: ${checkin}\nCheck-out: ${checkout}\nNights: ${nights}\nGuests: ${guests}\n\nMessage:\n${message || '(none)'}`;
-      window.location.href = `mailto:glampinglaghianda@gmail.com?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
+      const ok = await submitToWeb3Forms({
+        subject: `Booking Request: ${name} — ${checkin} to ${checkout}`,
+        from_name: 'Glamping La Ghianda — Booking Request',
+        name, email, checkin, checkout, nights, guests,
+        message: message || '(none)',
+      }, submitBtn);
+
+      if (!ok) {
+        errorEl.textContent = errors[lang].failed; errorEl.classList.remove('hidden');
+        const body = `Name: ${name}\nEmail: ${email}\nCheck-in: ${checkin}\nCheck-out: ${checkout}\nNights: ${nights}\nGuests: ${guests}\n\nMessage:\n${message || '(none)'}`;
+        window.location.href = `mailto:glampinglaghianda@gmail.com?subject=${encodeURIComponent('Booking Request: ' + name + ' — ' + checkin + ' to ' + checkout)}&body=${encodeURIComponent(body)}`;
+      }
 
       successEl.classList.remove('hidden');
       form.reset();
