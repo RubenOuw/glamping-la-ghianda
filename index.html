@@ -792,6 +792,8 @@
       <p class="mt-5 text-forest/60 text-lg font-light" data-lang="it">Ogni messaggio viene letto personalmente da Monica — non è collegato a Booking.com o Airbnb, solo una parola diretta da te a noi. Alcune storie arrivano su questa pagina.</p>
     </div>
 
+    <div id="guestbookEntries" class="grid sm:grid-cols-2 gap-5 mb-14 reveal"></div>
+
     <form id="guestbookForm" class="tilt rounded-3xl bg-cream-dark border border-forest/10 p-6 sm:p-10 reveal" novalidate>
       <div class="grid sm:grid-cols-2 gap-5 mb-5">
         <div>
@@ -1466,6 +1468,9 @@
   // Replace the placeholder, then redeploy — that's the only change needed.
   const WEB3FORMS_ACCESS_KEY = '1d00039e-b733-4b27-a88f-25a5dc47a988';
 
+  // Guestbook storage/moderation API (Cloudflare Worker).
+  const GUESTBOOK_API = 'https://glampinglaghianda.com/api/guestbook';
+
   async function submitToWeb3Forms(payload, submitBtn, btnLabelEl) {
     const originalHTML = btnLabelEl ? btnLabelEl.innerHTML : null;
     if (submitBtn) submitBtn.disabled = true;
@@ -1484,7 +1489,29 @@
     }
   }
 
-  // Guestbook: submit via Web3Forms (falls back to mailto if the request fails)
+  // Guestbook: fetch + render approved entries
+  (function () {
+    const wrap = document.getElementById('guestbookEntries');
+    if (!wrap) return;
+    fetch(`${GUESTBOOK_API}/list`)
+      .then(r => r.json())
+      .then(data => {
+        if (!data.success || !data.entries || !data.entries.length) return;
+        wrap.innerHTML = data.entries.map(entry => {
+          const stars = '★'.repeat(entry.rating) + '☆'.repeat(5 - entry.rating);
+          const safeName = String(entry.name).replace(/[<>&]/g, c => ({ '<': '&lt;', '>': '&gt;', '&': '&amp;' }[c]));
+          const safeMessage = String(entry.message).replace(/[<>&]/g, c => ({ '<': '&lt;', '>': '&gt;', '&': '&amp;' }[c]));
+          return `<div class="rounded-2xl bg-cream-dark border border-forest/10 p-6">
+            <p class="text-terracotta text-sm tracking-wide mb-2">${stars}</p>
+            <p class="text-forest/80 text-sm leading-relaxed mb-3">"${safeMessage}"</p>
+            <p class="text-forest/50 text-xs font-semibold">${safeName}</p>
+          </div>`;
+        }).join('');
+      })
+      .catch(() => { /* silently skip — form still works without this */ });
+  })();
+
+  // Guestbook: submit via Web3Forms + save to moderation queue (falls back to mailto if both fail)
   (function () {
     const form = document.getElementById('guestbookForm');
     if (!form) return;
@@ -1507,15 +1534,31 @@
       if (!message) { errorEl.textContent = errors[lang].message; errorEl.classList.remove('hidden'); return; }
 
       const stars = '★'.repeat(Number(rating)) + '☆'.repeat(5 - Number(rating));
+
+      let approveUrl = null;
+      try {
+        const saveRes = await fetch(GUESTBOOK_API, {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({ name, rating, message }),
+        });
+        const saveData = await saveRes.json();
+        if (saveData.success) approveUrl = saveData.approveUrl;
+      } catch (err) { /* storage is best-effort — email still goes out below */ }
+
+      const notifyMessage = approveUrl
+        ? `${message}\n\n— To publish this on the website, approve it here: ${approveUrl}`
+        : message;
+
       const ok = await submitToWeb3Forms({
         subject: `Guestbook: ${name} (${rating}/5)`,
         from_name: 'Glamping La Ghianda — Guestbook',
-        name, rating: `${stars} (${rating}/5)`, message,
+        name, rating: `${stars} (${rating}/5)`, message: notifyMessage,
       }, submitBtn);
 
       if (!ok) {
         errorEl.textContent = errors[lang].failed; errorEl.classList.remove('hidden');
-        const body = `Name: ${name}\nRating: ${stars} (${rating}/5)\n\n${message}`;
+        const body = `Name: ${name}\nRating: ${stars} (${rating}/5)\n\n${notifyMessage}`;
         window.location.href = `mailto:glampinglaghianda@gmail.com?subject=${encodeURIComponent('Guestbook: ' + name + ' (' + rating + '/5)')}&body=${encodeURIComponent(body)}`;
       }
 
