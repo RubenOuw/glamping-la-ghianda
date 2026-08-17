@@ -843,59 +843,21 @@
 <!-- ============ BOOK ============ -->
 <section id="book" class="py-20 sm:py-28 px-5 sm:px-8 bg-forest text-cream grain">
   <div class="max-w-6xl mx-auto">
-    <div class="max-w-2xl mb-14 reveal">
+    <div class="max-w-2xl mb-12 reveal">
       <p class="uppercase tracking-[0.3em] text-terracotta-light text-xs font-semibold mb-4">
         <span data-lang="en">Book Your Stay</span><span data-lang="it">Prenota il Tuo Soggiorno</span>
       </p>
       <h2 class="font-display text-4xl sm:text-5xl font-semibold leading-tight">
-        <span data-lang="en">Reserve on your favourite platform</span>
-        <span data-lang="it">Prenota sulla tua piattaforma preferita</span>
+        <span data-lang="en">Send us your dates</span>
+        <span data-lang="it">Inviaci le tue date</span>
       </h2>
+      <p class="mt-5 text-cream/70 text-lg font-light">
+        <span data-lang="en">Skip Booking.com and Airbnb — request your stay directly with Monica. This is a request, not an instant confirmation; she typically responds within 24 hours to confirm availability.</span>
+        <span data-lang="it">Salta Booking.com e Airbnb — richiedi il tuo soggiorno direttamente con Monica. Questa è una richiesta, non una conferma immediata; risponde di solito entro 24 ore per confermare la disponibilità.</span>
+      </p>
     </div>
 
-    <div class="grid sm:grid-cols-3 gap-6 mb-8">
-      <a href="https://www.booking.com/hotel/it/glamping-la-ghianda.html" target="_blank" rel="noopener"
-         class="group rounded-3xl bg-forest-light border border-cream/10 p-8 flex items-center justify-between hover:border-terracotta-light transition-colors cursor-pointer">
-        <div>
-          <h3 class="font-display text-2xl font-semibold mb-1">Booking.com</h3>
-          <p class="text-cream/60 text-sm"><span data-lang="en">Rated 9.5/10 &middot; our recommended platform</span><span data-lang="it">Valutazione 9,5/10 &middot; piattaforma consigliata</span></p>
-        </div>
-        <svg class="w-6 h-6 text-terracotta-light group-hover:translate-x-1 transition-transform shrink-0" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M5 12h14M13 6l6 6-6 6" stroke-linecap="round" stroke-linejoin="round"/></svg>
-      </a>
-      <a href="https://www.airbnb.com/rooms/875332535783348800" target="_blank" rel="noopener"
-         class="group rounded-3xl bg-forest-light border border-cream/10 p-8 flex items-center justify-between hover:border-terracotta-light transition-colors cursor-pointer">
-        <div>
-          <h3 class="font-display text-2xl font-semibold mb-1">Airbnb</h3>
-          <p class="text-cream/60 text-sm"><span data-lang="en">Tent Two &middot; direct listing</span><span data-lang="it">Tenda Due &middot; annuncio diretto</span></p>
-        </div>
-        <svg class="w-6 h-6 text-terracotta-light group-hover:translate-x-1 transition-transform shrink-0" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M5 12h14M13 6l6 6-6 6" stroke-linecap="round" stroke-linejoin="round"/></svg>
-      </a>
-      <a href="https://www.google.com/maps/search/?api=1&query=Glamping+La+Ghianda+Elmo+Sorano+Italy" target="_blank" rel="noopener"
-         class="group rounded-3xl bg-forest-light border border-cream/10 p-8 flex items-center justify-between hover:border-terracotta-light transition-colors cursor-pointer">
-        <div>
-          <h3 class="font-display text-2xl font-semibold mb-1">Google</h3>
-          <p class="text-cream/60 text-sm"><span data-lang="en">5.0/5 &middot; read our guest reviews</span><span data-lang="it">5,0/5 &middot; leggi le recensioni degli ospiti</span></p>
-        </div>
-        <svg class="w-6 h-6 text-terracotta-light group-hover:translate-x-1 transition-transform shrink-0" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M5 12h14M13 6l6 6-6 6" stroke-linecap="round" stroke-linejoin="round"/></svg>
-      </a>
-    </div>
-    <div class="flex items-center gap-4 my-10">
-      <div class="h-px flex-1 bg-cream/15"></div>
-      <span class="text-cream/50 text-xs uppercase tracking-[0.2em]"><span data-lang="en">or request directly</span><span data-lang="it">oppure richiedi direttamente</span></span>
-      <div class="h-px flex-1 bg-cream/15"></div>
-    </div>
-
-    <div class="rounded-3xl bg-forest-light border border-cream/10 p-6 sm:p-10">
-      <div class="max-w-2xl mb-8">
-        <h3 class="font-display text-2xl sm:text-3xl font-semibold mb-2">
-          <span data-lang="en">Request a Booking</span><span data-lang="it">Richiedi una Prenotazione</span>
-        </h3>
-        <p class="text-cream/60 text-sm">
-          <span data-lang="en">Skip Booking.com and Airbnb — send your dates straight to Monica. This is a request, not an instant confirmation; Monica typically responds within 24 hours to confirm availability.</span>
-          <span data-lang="it">Salta Booking.com e Airbnb — invia le tue date direttamente a Monica. Questa è una richiesta, non una conferma immediata; Monica risponde di solito entro 24 ore per confermare la disponibilità.</span>
-        </p>
-      </div>
-
+    <div class="rounded-3xl bg-forest-light border border-cream/10 p-6 sm:p-10 mb-12 reveal">
       <form id="bookingRequestForm" class="grid sm:grid-cols-2 gap-5" novalidate>
         <div>
           <label for="brName" class="block text-sm font-semibold mb-2"><span data-lang="en">Full name</span><span data-lang="it">Nome completo</span> <span class="text-terracotta-light">*</span></label>
@@ -921,15 +883,6 @@
           <label for="brGuests" class="block text-sm font-semibold mb-2"><span data-lang="en">Guests</span><span data-lang="it">Ospiti</span></label>
           <input id="brGuests" name="guests" type="number" min="1" max="6" value="2"
             class="w-full rounded-xl border border-cream/15 bg-forest px-4 py-3 text-sm text-cream focus:outline-none focus:ring-2 focus:ring-terracotta/40" />
-        </div>
-        <div>
-          <label for="brTent" class="block text-sm font-semibold mb-2"><span data-lang="en">Tent preference</span><span data-lang="it">Preferenza tenda</span></label>
-          <select id="brTent" name="tent"
-            class="w-full rounded-xl border border-cream/15 bg-forest px-4 py-3 text-sm text-cream focus:outline-none focus:ring-2 focus:ring-terracotta/40">
-            <option value="No preference" data-en="No preference" data-it="Nessuna preferenza">No preference</option>
-            <option value="Tent One" data-en="Tent One" data-it="Tenda Uno">Tent One</option>
-            <option value="Tent Two" data-en="Tent Two" data-it="Tenda Due">Tent Two</option>
-          </select>
         </div>
         <div class="sm:col-span-2">
           <label for="brMessage" class="block text-sm font-semibold mb-2"><span data-lang="en">Message (optional)</span><span data-lang="it">Messaggio (facoltativo)</span></label>
@@ -957,6 +910,39 @@
           <span data-lang="it">Quasi fatto! Controlla la tua app di posta per il messaggio che abbiamo preparato e premi invia. Monica ti risponderà entro circa 24 ore.</span>
         </div>
       </form>
+    </div>
+
+    <div class="flex items-center gap-4 mb-8">
+      <div class="h-px flex-1 bg-cream/15"></div>
+      <span class="text-cream/50 text-xs uppercase tracking-[0.2em]"><span data-lang="en">or book through a platform</span><span data-lang="it">oppure prenota tramite una piattaforma</span></span>
+      <div class="h-px flex-1 bg-cream/15"></div>
+    </div>
+
+    <div class="grid sm:grid-cols-3 gap-6">
+      <a href="https://www.booking.com/hotel/it/glamping-la-ghianda.html" target="_blank" rel="noopener"
+         class="group rounded-3xl bg-forest-light border border-cream/10 p-8 flex items-center justify-between hover:border-terracotta-light transition-colors cursor-pointer">
+        <div>
+          <h3 class="font-display text-2xl font-semibold mb-1">Booking.com</h3>
+          <p class="text-cream/60 text-sm"><span data-lang="en">Rated 9.5/10 &middot; our recommended platform</span><span data-lang="it">Valutazione 9,5/10 &middot; piattaforma consigliata</span></p>
+        </div>
+        <svg class="w-6 h-6 text-terracotta-light group-hover:translate-x-1 transition-transform shrink-0" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M5 12h14M13 6l6 6-6 6" stroke-linecap="round" stroke-linejoin="round"/></svg>
+      </a>
+      <a href="https://www.airbnb.com/rooms/875332535783348800" target="_blank" rel="noopener"
+         class="group rounded-3xl bg-forest-light border border-cream/10 p-8 flex items-center justify-between hover:border-terracotta-light transition-colors cursor-pointer">
+        <div>
+          <h3 class="font-display text-2xl font-semibold mb-1">Airbnb</h3>
+          <p class="text-cream/60 text-sm"><span data-lang="en">Tent Two &middot; direct listing</span><span data-lang="it">Tenda Due &middot; annuncio diretto</span></p>
+        </div>
+        <svg class="w-6 h-6 text-terracotta-light group-hover:translate-x-1 transition-transform shrink-0" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M5 12h14M13 6l6 6-6 6" stroke-linecap="round" stroke-linejoin="round"/></svg>
+      </a>
+      <a href="https://www.google.com/maps/search/?api=1&query=Glamping+La+Ghianda+Elmo+Sorano+Italy" target="_blank" rel="noopener"
+         class="group rounded-3xl bg-forest-light border border-cream/10 p-8 flex items-center justify-between hover:border-terracotta-light transition-colors cursor-pointer">
+        <div>
+          <h3 class="font-display text-2xl font-semibold mb-1">Google</h3>
+          <p class="text-cream/60 text-sm"><span data-lang="en">5.0/5 &middot; read our guest reviews</span><span data-lang="it">5,0/5 &middot; leggi le recensioni degli ospiti</span></p>
+        </div>
+        <svg class="w-6 h-6 text-terracotta-light group-hover:translate-x-1 transition-transform shrink-0" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M5 12h14M13 6l6 6-6 6" stroke-linecap="round" stroke-linejoin="round"/></svg>
+      </a>
     </div>
   </div>
 </section>
@@ -1545,7 +1531,6 @@
       const checkin = form.checkin.value;
       const checkout = form.checkout.value;
       const guests = form.guests.value;
-      const tent = form.tent.value;
       const message = form.message.value.trim();
       errorEl.classList.add('hidden');
 
@@ -1563,7 +1548,7 @@
       }
 
       const subject = `Booking Request: ${name} — ${checkin} to ${checkout}`;
-      const body = `Name: ${name}\nEmail: ${email}\nCheck-in: ${checkin}\nCheck-out: ${checkout}\nNights: ${nights}\nGuests: ${guests}\nTent preference: ${tent}\n\nMessage:\n${message || '(none)'}`;
+      const body = `Name: ${name}\nEmail: ${email}\nCheck-in: ${checkin}\nCheck-out: ${checkout}\nNights: ${nights}\nGuests: ${guests}\n\nMessage:\n${message || '(none)'}`;
       window.location.href = `mailto:glampinglaghianda@gmail.com?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
 
       successEl.classList.remove('hidden');
