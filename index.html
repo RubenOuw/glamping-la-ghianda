@@ -206,6 +206,7 @@
       <a href="#weather" class="hover:text-terracotta transition-colors"><span data-lang="en">Weather</span><span data-lang="it">Meteo</span></a>
       <a href="#gallery" class="hover:text-terracotta transition-colors"><span data-lang="en">Gallery</span><span data-lang="it">Galleria</span></a>
       <a href="#good-to-know" class="hover:text-terracotta transition-colors"><span data-lang="en">Good to Know</span><span data-lang="it">Utile Sapere</span></a>
+      <a href="#guestbook" class="hover:text-terracotta transition-colors"><span data-lang="en">Guestbook</span><span data-lang="it">Ospiti</span></a>
       <a href="#contact" class="hover:text-terracotta transition-colors"><span data-lang="en">Contact</span><span data-lang="it">Contatti</span></a>
     </div>
 
@@ -240,6 +241,7 @@
     <a href="#weather" class="mobile-nav-link py-3 border-b border-cream/10 hover:text-terracotta-light transition-colors"><span data-lang="en">Weather</span><span data-lang="it">Meteo</span></a>
     <a href="#gallery" class="mobile-nav-link py-3 border-b border-cream/10 hover:text-terracotta-light transition-colors"><span data-lang="en">Gallery</span><span data-lang="it">Galleria</span></a>
     <a href="#good-to-know" class="mobile-nav-link py-3 border-b border-cream/10 hover:text-terracotta-light transition-colors"><span data-lang="en">Good to Know</span><span data-lang="it">Utile Sapere</span></a>
+    <a href="#guestbook" class="mobile-nav-link py-3 border-b border-cream/10 hover:text-terracotta-light transition-colors"><span data-lang="en">Guestbook</span><span data-lang="it">Ospiti</span></a>
     <a href="#contact" class="mobile-nav-link py-3 border-b border-cream/10 hover:text-terracotta-light transition-colors"><span data-lang="en">Contact</span><span data-lang="it">Contatti</span></a>
     <a href="#book" class="mobile-nav-link py-3 hover:text-terracotta-light transition-colors"><span data-lang="en">Book Now</span><span data-lang="it">Prenota</span></a>
   </nav>
@@ -775,6 +777,69 @@
   </div>
 </section>
 
+<!-- ============ GUESTBOOK ============ -->
+<section id="guestbook" class="py-20 sm:py-28 px-5 sm:px-8">
+  <div class="max-w-4xl mx-auto">
+    <div class="max-w-2xl mb-12 reveal">
+      <p class="uppercase tracking-[0.3em] text-terracotta text-xs font-semibold mb-4">
+        <span data-lang="en">Guestbook</span><span data-lang="it">Libro degli Ospiti</span>
+      </p>
+      <h2 class="font-display text-4xl sm:text-5xl font-semibold leading-tight">
+        <span data-lang="en">Tell us about your stay</span>
+        <span data-lang="it">Raccontaci il tuo soggiorno</span>
+      </h2>
+      <p class="mt-5 text-forest/60 text-lg font-light" data-lang="en">Every note is read personally by Monica — this isn't linked to Booking.com or Airbnb, just a direct word from you to us. Some stories make it onto this page.</p>
+      <p class="mt-5 text-forest/60 text-lg font-light" data-lang="it">Ogni messaggio viene letto personalmente da Monica — non è collegato a Booking.com o Airbnb, solo una parola diretta da te a noi. Alcune storie arrivano su questa pagina.</p>
+    </div>
+
+    <form id="guestbookForm" class="tilt rounded-3xl bg-cream-dark border border-forest/10 p-6 sm:p-10 reveal" novalidate>
+      <div class="grid sm:grid-cols-2 gap-5 mb-5">
+        <div>
+          <label for="gbName" class="block text-sm font-semibold mb-2"><span data-lang="en">Your name</span><span data-lang="it">Il tuo nome</span> <span class="text-terracotta">*</span></label>
+          <input id="gbName" name="name" type="text" required autocomplete="name"
+            class="w-full rounded-xl border border-forest/15 bg-cream px-4 py-3 text-sm focus:outline-none focus:ring-2 focus:ring-terracotta/40" />
+        </div>
+        <div>
+          <label class="block text-sm font-semibold mb-2"><span data-lang="en">Your rating</span><span data-lang="it">La tua valutazione</span> <span class="text-terracotta">*</span></label>
+          <div class="star-rating flex items-center gap-1 h-[46px]" role="radiogroup" aria-label="Rating">
+            <input type="hidden" id="gbRating" name="rating" value="" required />
+            <button type="button" class="star-btn cursor-pointer p-1" data-value="1" aria-label="1 star"><svg class="w-7 h-7" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M12 2.5l2.9 6 6.6.9-4.8 4.6 1.1 6.5L12 17.6l-5.8 3 1.1-6.6-4.8-4.5 6.6-1z" stroke-linejoin="round"/></svg></button>
+            <button type="button" class="star-btn cursor-pointer p-1" data-value="2" aria-label="2 stars"><svg class="w-7 h-7" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M12 2.5l2.9 6 6.6.9-4.8 4.6 1.1 6.5L12 17.6l-5.8 3 1.1-6.6-4.8-4.5 6.6-1z" stroke-linejoin="round"/></svg></button>
+            <button type="button" class="star-btn cursor-pointer p-1" data-value="3" aria-label="3 stars"><svg class="w-7 h-7" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M12 2.5l2.9 6 6.6.9-4.8 4.6 1.1 6.5L12 17.6l-5.8 3 1.1-6.6-4.8-4.5 6.6-1z" stroke-linejoin="round"/></svg></button>
+            <button type="button" class="star-btn cursor-pointer p-1" data-value="4" aria-label="4 stars"><svg class="w-7 h-7" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M12 2.5l2.9 6 6.6.9-4.8 4.6 1.1 6.5L12 17.6l-5.8 3 1.1-6.6-4.8-4.5 6.6-1z" stroke-linejoin="round"/></svg></button>
+            <button type="button" class="star-btn cursor-pointer p-1" data-value="5" aria-label="5 stars"><svg class="w-7 h-7" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M12 2.5l2.9 6 6.6.9-4.8 4.6 1.1 6.5L12 17.6l-5.8 3 1.1-6.6-4.8-4.5 6.6-1z" stroke-linejoin="round"/></svg></button>
+            <span class="star-rating-label text-xs text-forest/50 ml-2"></span>
+          </div>
+        </div>
+      </div>
+
+      <label for="gbMessage" class="block text-sm font-semibold mb-2"><span data-lang="en">Your experience</span><span data-lang="it">La tua esperienza</span> <span class="text-terracotta">*</span></label>
+      <textarea id="gbMessage" name="message" rows="5" required
+        class="w-full rounded-xl border border-forest/15 bg-cream px-4 py-3 text-sm focus:outline-none focus:ring-2 focus:ring-terracotta/40"
+        placeholder="What did you love about your stay?"
+        data-placeholder-en="What did you love about your stay?"
+        data-placeholder-it="Cosa ti è piaciuto del tuo soggiorno?"></textarea>
+
+      <p class="gb-error hidden mt-3 text-sm text-terracotta font-semibold" role="alert"></p>
+
+      <div class="mt-6 flex flex-wrap items-center gap-4">
+        <button type="submit" class="magnetic items-center gap-2 rounded-full bg-terracotta text-cream px-6 py-3 text-sm font-semibold hover:bg-terracotta-dark transition-colors cursor-pointer">
+          <span data-lang="en">Send to Monica</span><span data-lang="it">Invia a Monica</span>
+        </button>
+        <p class="text-forest/50 text-xs max-w-xs">
+          <span data-lang="en">This opens a pre-filled email in your mail app — just hit send to complete it.</span>
+          <span data-lang="it">Si aprirà un'email precompilata nella tua app di posta — basta premere invia per completarla.</span>
+        </p>
+      </div>
+
+      <div class="gb-success hidden mt-6 rounded-2xl bg-terracotta/10 border border-terracotta/20 px-5 py-4 text-sm text-forest">
+        <span data-lang="en">Almost done! Check your email app for the message we just prepared, and hit send.</span>
+        <span data-lang="it">Quasi fatto! Controlla la tua app di posta per il messaggio che abbiamo preparato e premi invia.</span>
+      </div>
+    </form>
+  </div>
+</section>
+
 <!-- ============ BOOK ============ -->
 <section id="book" class="py-20 sm:py-28 px-5 sm:px-8 bg-forest text-cream grain">
   <div class="max-w-6xl mx-auto">
@@ -814,8 +879,85 @@
         <svg class="w-6 h-6 text-terracotta-light group-hover:translate-x-1 transition-transform shrink-0" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M5 12h14M13 6l6 6-6 6" stroke-linecap="round" stroke-linejoin="round"/></svg>
       </a>
     </div>
-    <p class="text-cream/50 text-sm" data-lang="en">Prefer to book directly? Reach out by email or phone below and Monica will help you find the right dates.</p>
-    <p class="text-cream/50 text-sm" data-lang="it">Preferisci prenotare direttamente? Scrivi o chiama ai contatti qui sotto: Monica ti aiuterà a trovare le date giuste.</p>
+    <div class="flex items-center gap-4 my-10">
+      <div class="h-px flex-1 bg-cream/15"></div>
+      <span class="text-cream/50 text-xs uppercase tracking-[0.2em]"><span data-lang="en">or request directly</span><span data-lang="it">oppure richiedi direttamente</span></span>
+      <div class="h-px flex-1 bg-cream/15"></div>
+    </div>
+
+    <div class="rounded-3xl bg-forest-light border border-cream/10 p-6 sm:p-10">
+      <div class="max-w-2xl mb-8">
+        <h3 class="font-display text-2xl sm:text-3xl font-semibold mb-2">
+          <span data-lang="en">Request a Booking</span><span data-lang="it">Richiedi una Prenotazione</span>
+        </h3>
+        <p class="text-cream/60 text-sm">
+          <span data-lang="en">Skip Booking.com and Airbnb — send your dates straight to Monica. This is a request, not an instant confirmation; Monica typically responds within 24 hours to confirm availability.</span>
+          <span data-lang="it">Salta Booking.com e Airbnb — invia le tue date direttamente a Monica. Questa è una richiesta, non una conferma immediata; Monica risponde di solito entro 24 ore per confermare la disponibilità.</span>
+        </p>
+      </div>
+
+      <form id="bookingRequestForm" class="grid sm:grid-cols-2 gap-5" novalidate>
+        <div>
+          <label for="brName" class="block text-sm font-semibold mb-2"><span data-lang="en">Full name</span><span data-lang="it">Nome completo</span> <span class="text-terracotta-light">*</span></label>
+          <input id="brName" name="name" type="text" required autocomplete="name"
+            class="w-full rounded-xl border border-cream/15 bg-forest px-4 py-3 text-sm text-cream focus:outline-none focus:ring-2 focus:ring-terracotta/40" />
+        </div>
+        <div>
+          <label for="brEmail" class="block text-sm font-semibold mb-2"><span data-lang="en">Email</span><span data-lang="it">Email</span> <span class="text-terracotta-light">*</span></label>
+          <input id="brEmail" name="email" type="email" required autocomplete="email"
+            class="w-full rounded-xl border border-cream/15 bg-forest px-4 py-3 text-sm text-cream focus:outline-none focus:ring-2 focus:ring-terracotta/40" />
+        </div>
+        <div>
+          <label for="brCheckin" class="block text-sm font-semibold mb-2"><span data-lang="en">Check-in</span><span data-lang="it">Check-in</span> <span class="text-terracotta-light">*</span></label>
+          <input id="brCheckin" name="checkin" type="date" required
+            class="w-full rounded-xl border border-cream/15 bg-forest px-4 py-3 text-sm text-cream focus:outline-none focus:ring-2 focus:ring-terracotta/40 [color-scheme:dark]" />
+        </div>
+        <div>
+          <label for="brCheckout" class="block text-sm font-semibold mb-2"><span data-lang="en">Check-out</span><span data-lang="it">Check-out</span> <span class="text-terracotta-light">*</span></label>
+          <input id="brCheckout" name="checkout" type="date" required
+            class="w-full rounded-xl border border-cream/15 bg-forest px-4 py-3 text-sm text-cream focus:outline-none focus:ring-2 focus:ring-terracotta/40 [color-scheme:dark]" />
+        </div>
+        <div>
+          <label for="brGuests" class="block text-sm font-semibold mb-2"><span data-lang="en">Guests</span><span data-lang="it">Ospiti</span></label>
+          <input id="brGuests" name="guests" type="number" min="1" max="6" value="2"
+            class="w-full rounded-xl border border-cream/15 bg-forest px-4 py-3 text-sm text-cream focus:outline-none focus:ring-2 focus:ring-terracotta/40" />
+        </div>
+        <div>
+          <label for="brTent" class="block text-sm font-semibold mb-2"><span data-lang="en">Tent preference</span><span data-lang="it">Preferenza tenda</span></label>
+          <select id="brTent" name="tent"
+            class="w-full rounded-xl border border-cream/15 bg-forest px-4 py-3 text-sm text-cream focus:outline-none focus:ring-2 focus:ring-terracotta/40">
+            <option value="No preference" data-en="No preference" data-it="Nessuna preferenza">No preference</option>
+            <option value="Tent One" data-en="Tent One" data-it="Tenda Uno">Tent One</option>
+            <option value="Tent Two" data-en="Tent Two" data-it="Tenda Due">Tent Two</option>
+          </select>
+        </div>
+        <div class="sm:col-span-2">
+          <label for="brMessage" class="block text-sm font-semibold mb-2"><span data-lang="en">Message (optional)</span><span data-lang="it">Messaggio (facoltativo)</span></label>
+          <textarea id="brMessage" name="message" rows="4"
+            class="w-full rounded-xl border border-cream/15 bg-forest px-4 py-3 text-sm text-cream focus:outline-none focus:ring-2 focus:ring-terracotta/40"
+            placeholder="Anything Monica should know?"
+            data-placeholder-en="Anything Monica should know?"
+            data-placeholder-it="C'è qualcosa che Monica dovrebbe sapere?"></textarea>
+        </div>
+
+        <p class="br-error hidden sm:col-span-2 text-sm text-terracotta-light font-semibold" role="alert"></p>
+
+        <div class="sm:col-span-2 flex flex-wrap items-center gap-4 mt-2">
+          <button type="submit" class="magnetic items-center gap-2 rounded-full bg-terracotta text-cream px-6 py-3 text-sm font-semibold hover:bg-terracotta-dark transition-colors cursor-pointer">
+            <span data-lang="en">Send Booking Request</span><span data-lang="it">Invia Richiesta</span>
+          </button>
+          <p class="text-cream/50 text-xs max-w-xs">
+            <span data-lang="en">Opens a pre-filled email in your mail app — hit send to complete your request.</span>
+            <span data-lang="it">Si aprirà un'email precompilata nella tua app di posta — premi invia per completare la richiesta.</span>
+          </p>
+        </div>
+
+        <div class="br-success hidden sm:col-span-2 mt-2 rounded-2xl bg-terracotta/15 border border-terracotta/25 px-5 py-4 text-sm">
+          <span data-lang="en">Almost done! Check your email app for the message we just prepared, and hit send. Monica will get back to you within about 24 hours.</span>
+          <span data-lang="it">Quasi fatto! Controlla la tua app di posta per il messaggio che abbiamo preparato e premi invia. Monica ti risponderà entro circa 24 ore.</span>
+        </div>
+      </form>
+    </div>
   </div>
 </section>
 
@@ -885,6 +1027,12 @@
       b.classList.toggle('bg-terracotta', active);
       b.classList.toggle('opacity-100', active);
       b.classList.toggle('opacity-60', !active);
+    });
+    document.querySelectorAll('[data-placeholder-en]').forEach(el => {
+      el.placeholder = el.dataset[lang === 'it' ? 'placeholderIt' : 'placeholderEn'];
+    });
+    document.querySelectorAll('option[data-en]').forEach(opt => {
+      opt.textContent = opt.dataset[lang === 'it' ? 'it' : 'en'];
     });
   }
   document.querySelectorAll('.lang-btn').forEach(b => b.addEventListener('click', () => setLang(b.dataset.setLang)));
@@ -1295,6 +1443,132 @@
       }
     }
     loadWeather();
+  })();
+
+  // Guestbook: star rating widget
+  (function () {
+    const wrap = document.querySelector('.star-rating');
+    if (!wrap) return;
+    const hidden = document.getElementById('gbRating');
+    const buttons = [...wrap.querySelectorAll('.star-btn')];
+    const label = wrap.querySelector('.star-rating-label');
+    const labels = { en: ['Poor', 'Fair', 'Good', 'Very good', 'Excellent'], it: ['Scarso', 'Discreto', 'Buono', 'Molto buono', 'Eccellente'] };
+    function paint(value) {
+      buttons.forEach(b => {
+        const on = Number(b.dataset.value) <= value;
+        b.classList.toggle('text-terracotta', on);
+        b.classList.toggle('text-forest/25', !on);
+        b.querySelector('svg').setAttribute('fill', on ? 'currentColor' : 'none');
+      });
+    }
+    paint(0);
+    buttons.forEach(b => {
+      b.addEventListener('mouseenter', () => paint(Number(b.dataset.value)));
+      b.addEventListener('focus', () => paint(Number(b.dataset.value)));
+      b.addEventListener('click', () => {
+        hidden.value = b.dataset.value;
+        paint(Number(b.dataset.value));
+        const lang = document.documentElement.classList.contains('lang-it') ? 'it' : 'en';
+        label.textContent = labels[lang][Number(b.dataset.value) - 1];
+      });
+    });
+    wrap.addEventListener('mouseleave', () => paint(Number(hidden.value) || 0));
+  })();
+
+  // Guestbook: submit via mailto
+  (function () {
+    const form = document.getElementById('guestbookForm');
+    if (!form) return;
+    const errorEl = form.querySelector('.gb-error');
+    const successEl = form.querySelector('.gb-success');
+    const errors = {
+      en: { name: 'Please enter your name.', rating: 'Please choose a rating.', message: 'Please share a few words about your stay.' },
+      it: { name: 'Inserisci il tuo nome.', rating: 'Scegli una valutazione.', message: 'Condividi qualche parola sul tuo soggiorno.' }
+    };
+    form.addEventListener('submit', (e) => {
+      e.preventDefault();
+      const lang = document.documentElement.classList.contains('lang-it') ? 'it' : 'en';
+      const name = form.name.value.trim();
+      const rating = form.rating.value;
+      const message = form.message.value.trim();
+      errorEl.classList.add('hidden');
+      if (!name) { errorEl.textContent = errors[lang].name; errorEl.classList.remove('hidden'); return; }
+      if (!rating) { errorEl.textContent = errors[lang].rating; errorEl.classList.remove('hidden'); return; }
+      if (!message) { errorEl.textContent = errors[lang].message; errorEl.classList.remove('hidden'); return; }
+
+      const stars = '★'.repeat(Number(rating)) + '☆'.repeat(5 - Number(rating));
+      const subject = `Guestbook: ${name} (${rating}/5)`;
+      const body = `Name: ${name}\nRating: ${stars} (${rating}/5)\n\n${message}`;
+      window.location.href = `mailto:glampinglaghianda@gmail.com?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
+
+      successEl.classList.remove('hidden');
+      form.reset();
+      document.getElementById('gbRating').value = '';
+      document.querySelectorAll('.star-btn').forEach(b => {
+        b.classList.remove('text-terracotta'); b.classList.add('text-forest/25');
+        b.querySelector('svg').setAttribute('fill', 'none');
+      });
+      const starLabel = document.querySelector('.star-rating-label');
+      if (starLabel) starLabel.textContent = '';
+    });
+  })();
+
+  // Booking request: date constraints + submit via mailto
+  (function () {
+    const form = document.getElementById('bookingRequestForm');
+    if (!form) return;
+    const ci = document.getElementById('brCheckin');
+    const co = document.getElementById('brCheckout');
+    const today = new Date().toISOString().split('T')[0];
+    ci.min = today;
+    co.min = today;
+    ci.addEventListener('change', () => {
+      if (ci.value) {
+        const d = new Date(ci.value);
+        d.setDate(d.getDate() + 2);
+        co.min = d.toISOString().split('T')[0];
+        if (co.value && co.value < co.min) co.value = co.min;
+      }
+    });
+
+    const errorEl = form.querySelector('.br-error');
+    const successEl = form.querySelector('.br-success');
+    const errors = {
+      en: { required: 'Please fill in your name, email, check-in and check-out dates.', order: 'Check-out must be after check-in.', minStay: 'Minimum stay is 2 nights.' },
+      it: { required: 'Compila nome, email, data di check-in e check-out.', order: 'Il check-out deve essere dopo il check-in.', minStay: 'Il soggiorno minimo è di 2 notti.' }
+    };
+    form.addEventListener('submit', (e) => {
+      e.preventDefault();
+      const lang = document.documentElement.classList.contains('lang-it') ? 'it' : 'en';
+      const name = form.name.value.trim();
+      const email = form.email.value.trim();
+      const checkin = form.checkin.value;
+      const checkout = form.checkout.value;
+      const guests = form.guests.value;
+      const tent = form.tent.value;
+      const message = form.message.value.trim();
+      errorEl.classList.add('hidden');
+
+      if (!name || !email || !checkin || !checkout) {
+        errorEl.textContent = errors[lang].required; errorEl.classList.remove('hidden'); return;
+      }
+      const inDate = new Date(checkin);
+      const outDate = new Date(checkout);
+      if (outDate <= inDate) {
+        errorEl.textContent = errors[lang].order; errorEl.classList.remove('hidden'); return;
+      }
+      const nights = Math.round((outDate - inDate) / 86400000);
+      if (nights < 2) {
+        errorEl.textContent = errors[lang].minStay; errorEl.classList.remove('hidden'); return;
+      }
+
+      const subject = `Booking Request: ${name} — ${checkin} to ${checkout}`;
+      const body = `Name: ${name}\nEmail: ${email}\nCheck-in: ${checkin}\nCheck-out: ${checkout}\nNights: ${nights}\nGuests: ${guests}\nTent preference: ${tent}\n\nMessage:\n${message || '(none)'}`;
+      window.location.href = `mailto:glampinglaghianda@gmail.com?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
+
+      successEl.classList.remove('hidden');
+      form.reset();
+    });
   })();
 </script>
 </body>
